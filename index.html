@@ -30,7 +30,7 @@
       <![endif]-->
    </head>
    <body id="default_theme" class="home_page1">
-      <div class="hostInfo">you are connected from $(hostname -f)</div>
+      <!-- <div class="hostInfo" id='info' onfocus="test()">you are connected from $(hostname -f)</div> -->
       <!-- header -->
       <header class="header header_style1">
          <div class="container">
@@ -556,4 +556,22 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
       <!-- end google map js -->
    </body>
+   <script type="text/javascript">
+      var a = os.hostname()
+      let r = Math.random().toString(36).substring(7);
+      function makeid(length) {
+         var result           = '';
+         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+         var charactersLength = characters.length;
+         for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+         }
+         return result;
+      }
+
+      function test(){
+         document.getElementById('info').innerHTML= `asik ${makeid(5)}`
+         console.log(os)
+      }
+   </script>
 </html>
